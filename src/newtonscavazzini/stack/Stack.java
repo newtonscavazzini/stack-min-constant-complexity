@@ -46,6 +46,15 @@ public class Stack {
     }
 
     /**
+     * Removes all elements of this stack.
+     * Time Complexity: O(1)
+     */
+    public void clear() {
+        this.top = null;
+        this.size = 0;
+    }
+
+    /**
      * Returns the element at the top of this stack without removing it.
      * Time Complexity: O(1)
      * @return The element at the top of this stack

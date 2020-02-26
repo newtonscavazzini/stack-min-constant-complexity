@@ -12,4 +12,16 @@ public class StackCC extends Stack {
         this.minStack = new Stack();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void push(int value) {
+        super.push(value);
+
+        if (this.minStack.isEmpty() || value <= this.minStack.peek()) {
+            this.minStack.push(value);
+        }
+    }
+
 }

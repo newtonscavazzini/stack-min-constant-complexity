@@ -1,12 +1,14 @@
 package newtonscavazzini.stack;
 
 import java.util.EmptyStackException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * This is a basic implementation of a Stack.
  * The getMin() method here returns in O(n) time.
  */
-public class Stack {
+public class Stack implements Iterable<Integer> {
 
     protected Node top;
     protected int size;
@@ -79,15 +81,12 @@ public class Stack {
         }
 
         int min = this.top.getValue();
-        Node currentNode = this.top;
 
-        while (currentNode != null) {
-            if (min > currentNode.getValue()) {
-                min = currentNode.getValue();
+        for (Integer value : this) {
+            if (min > value) {
+                min = value;
             }
-            currentNode = currentNode.getNext();
         }
-
         return min;
     }
 
@@ -109,6 +108,37 @@ public class Stack {
      */
     public boolean isEmpty() {
         return this.getSize() == 0;
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Itr(this.top);
+    }
+
+    private static class Itr implements Iterator<Integer> {
+
+        Node current;
+
+        public Itr(Node top) {
+            current = top;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public Integer next() {
+            if (current == null) {
+                throw new NoSuchElementException();
+            }
+
+            int value = current.getValue();
+            current = current.getNext();
+            return value;
+        }
+
     }
 
 }

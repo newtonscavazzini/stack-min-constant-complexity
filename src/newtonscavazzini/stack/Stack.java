@@ -45,6 +45,18 @@ public class Stack {
     }
 
     /**
+     * Returns the element at the top of this stack without removing it.
+     * @return The element at the top of this stack
+     * @throws EmptyStackException if this stack is empty
+     */
+    public int peek() {
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return this.top.getValue();
+    }
+
+    /**
      * Returns the number of elements in this stack.
      * Time Complexity: O(1)
      * @return number of elements in this stack

@@ -25,4 +25,24 @@ public class Stack {
         this.size++;
     }
 
+    /**
+     * Returns the number of elements in this stack.
+     * Time Complexity: O(1)
+     * @return number of elements in this stack
+     */
+    public int getSize() {
+        return this.size;
+    }
+
+    /**
+     * Returns {@code true} if this stack has no elements.
+     * {@code false} otherwise.
+     * Time Complexity: O(1)
+     * @return {@code true} if this stack has no elements.
+     *         {@code false} otherwise.
+     */
+    public boolean isEmpty() {
+        return this.getSize() == 0;
+    }
+
 }

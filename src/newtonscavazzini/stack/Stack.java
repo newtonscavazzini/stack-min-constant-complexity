@@ -1,5 +1,7 @@
 package newtonscavazzini.stack;
 
+import java.util.EmptyStackException;
+
 /**
  * This is a basic implementation of a Stack.
  * The getMin() method here returns in O(n) time.
@@ -23,6 +25,23 @@ public class Stack {
 
         this.top = newNode;
         this.size++;
+    }
+
+    /**
+     * Removes the element at the top of this stack and returns that value.
+     * @return The removed element
+     * @throws EmptyStackException if this stack is empty
+     */
+    public int pop() {
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        int element = this.top.getValue();
+        this.top = top.getNext();
+        size--;
+
+        return element;
     }
 
     /**

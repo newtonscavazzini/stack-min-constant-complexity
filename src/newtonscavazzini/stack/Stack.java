@@ -5,4 +5,8 @@ package newtonscavazzini.stack;
  * The getMin() method here returns in O(n) time.
  */
 public class Stack {
+
+    protected Node top;
+    protected int size;
+
 }

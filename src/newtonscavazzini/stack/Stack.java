@@ -40,7 +40,7 @@ public class Stack {
 
         int element = this.top.getValue();
         this.top = top.getNext();
-        size--;
+        this.size--;
 
         return element;
     }

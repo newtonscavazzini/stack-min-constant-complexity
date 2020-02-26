@@ -29,6 +29,7 @@ public class Stack {
 
     /**
      * Removes the element at the top of this stack and returns that value.
+     * Time Complexity: O(1)
      * @return The removed element
      * @throws EmptyStackException if this stack is empty
      */
@@ -46,6 +47,7 @@ public class Stack {
 
     /**
      * Returns the element at the top of this stack without removing it.
+     * Time Complexity: O(1)
      * @return The element at the top of this stack
      * @throws EmptyStackException if this stack is empty
      */

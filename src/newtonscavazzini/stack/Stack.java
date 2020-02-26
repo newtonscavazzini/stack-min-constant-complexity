@@ -68,6 +68,30 @@ public class Stack {
     }
 
     /**
+     * Returns the minimium element on this stack.
+     * Time Complexity: O(n)
+     * @return The minimum element on this stack
+     * @throws EmptyStackException if this stack is empty
+     */
+    public int getMin() {
+        if (this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        int min = this.top.getValue();
+        Node currentNode = this.top;
+
+        while (currentNode != null) {
+            if (min > currentNode.getValue()) {
+                min = currentNode.getValue();
+            }
+            currentNode = currentNode.getNext();
+        }
+
+        return min;
+    }
+
+    /**
      * Returns the number of elements in this stack.
      * Time Complexity: O(1)
      * @return number of elements in this stack

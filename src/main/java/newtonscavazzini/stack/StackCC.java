@@ -37,4 +37,13 @@ public class StackCC extends Stack {
 
         return pop;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void clear() {
+        super.clear();
+        this.minStack.clear();
+    }
 }

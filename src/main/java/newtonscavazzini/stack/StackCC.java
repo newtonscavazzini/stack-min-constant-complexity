@@ -24,4 +24,17 @@ public class StackCC extends Stack {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int pop() {
+        int pop = super.pop();
+
+        if (pop == this.minStack.peek()) {
+            this.minStack.pop();
+        }
+
+        return pop;
+    }
 }

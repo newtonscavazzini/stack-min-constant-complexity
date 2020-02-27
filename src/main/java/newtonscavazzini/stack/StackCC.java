@@ -1,5 +1,7 @@
 package newtonscavazzini.stack;
 
+import java.util.EmptyStackException;
+
 /**
  * This is the implementation of the special Stack (CC stands for Constant Complexity).
  * All of the methods of this Stack returns in O(1) time.
@@ -45,5 +47,16 @@ public class StackCC extends Stack {
     public void clear() {
         super.clear();
         this.minStack.clear();
+    }
+
+    /**
+     * Returns the minimium element on this stack.
+     * Time Complexity: O(1)
+     * @return The minimum element on this stack
+     * @throws EmptyStackException if this stack is empty
+     */
+    @Override
+    public int getMin() {
+        return this.minStack.peek();
     }
 }

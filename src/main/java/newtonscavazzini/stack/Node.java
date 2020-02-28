@@ -1,6 +1,6 @@
 package newtonscavazzini.stack;
 
-public class Node {
+class Node {
 
     private int value;
     private Node next;

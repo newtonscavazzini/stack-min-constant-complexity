@@ -7,10 +7,11 @@ public class PerformanceTest {
 
     public static void main(String[] args) {
 
-        Stack stack = new StackCC();
+        Stack stack = getStackTypeFromArgs(args);
+        final int n = getNumberOfElementsFromArgs(args, 10_000_000);
 
         // Worst-case for memory usage
-        for (int i = 10_000_000; i > 0; i--) {
+        for (int i = n; i > 0; i--) {
             stack.push(i);
         }
 
@@ -28,5 +29,35 @@ public class PerformanceTest {
         System.out.println("getMin() Time:   " + executionTime + "µs");
         System.out.println("------------------------------------");
 
+    }
+
+    private static int getNumberOfElementsFromArgs(String[] args, int defaultSize) {
+        try {
+            for (int i = 0; i < args.length; i++) {
+                if (args[i].toUpperCase().equals("-N")) {
+                    return Integer.parseInt(args[i + 1]);
+                }
+            }
+        }
+        catch (NumberFormatException e) {
+            System.out.println(PerformanceTest.class.getSimpleName() +
+                    ": Argument after -n must be an integer");
+            System.exit(1);
+        }
+        catch (Exception e) {
+            System.out.println(PerformanceTest.class.getSimpleName() +
+                    ": Missing argument after -n");
+            System.exit(1);
+        }
+        return defaultSize;
+    }
+
+    private static Stack getStackTypeFromArgs(String[] args) {
+        for (String arg : args) {
+            if (arg.toUpperCase().equals("-CC")) {
+                return new StackCC();
+            }
+        }
+        return new Stack();
     }
 }
